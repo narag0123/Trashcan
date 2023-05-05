@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@mixin FolderForm() {
+    width: 1064px;
+    height: 590px;
+    background: #f6f6f6;
+    box-shadow: inset 2px 0px 3px rgba(84, 84, 84, 0.25),
+        inset -2px 0px 3px rgba(84, 84, 84, 0.25);
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .head {
+        width: 100%;
+        height: 80px;
+        background: #ebebeb;
+        box-shadow: inset -2px -2px 3px
+                rgba(84, 84, 84, 0.25),
+            inset 2px 2px 3px rgba(84, 84, 84, 0.25);
+        border-radius: 14px 14px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px;
+
+        .left {
+            display: flex;
+            align-items: center;
+
+            .icon_indicator {
+                display: flex;
+                gap: 12px;
+                margin-left: 5px;
+
+                .red {
+                    border-radius: 50%;
+                    width: 18px;
+                    height: 18px;
+                    background: #ef6c5c;
+                    cursor: pointer;
+                }
+                .orange {
+                    border-radius: 50%;
+                    width: 18px;
+                    height: 18px;
+                    background: #f7be46;
+                    cursor: pointer;
+                }
+                .green {
+                    border-radius: 50%;
+                    width: 18px;
+                    height: 18px;
+                    background: #5dc24e;
+                    cursor: pointer;
+                }
+            }
+
+            .divider {
+                width: 0px;
+                height: 32px;
+                border-left: 2px solid #cfcfcf;
+                margin: 0 35px;
+            }
+
+            .font-portfolio {
+                font-family: "AppleSDGothicNeoEB00";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 28px;
+                line-height: 40px;
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.03em;
+                color: #545454;
+            }
+        }
+    }
+
+    .body {
+        width: 100%;
+        flex: 1;
+        padding: 40px 35px;
+        display: flex;
+    }
+
+    .foot {
+        width: 100%;
+        height: 66px;
+
+        background: #f6f6f6;
+        border-top: 1px solid rgba(84, 84, 84, 0.25);
+        box-shadow: inset 2px -2px 3px rgba(84, 84, 84, 0.25),
+            inset -2px 0px 3px rgba(84, 84, 84, 0.25);
+        border-radius: 0px 0px 14px 14px;
+    }
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: linear-gradient(
+        281.45deg,
+        rgba(252, 227, 112, 0.5) 6.89%,
+        rgba(255, 207, 215, 0.5) 70.52%
+    );
+}
+
+.wrapper {
+    min-width: 1280px;
+}
+
+.home {
+    height: 100%;
+    position: relative;
+}
+
+.nav {
+    width: 90%;
+    margin-top: 40px;
+    height: 26px;
+    display: flex;
+    justify-content: space-between;
+
+    .icon-hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+
+        .ham {
+            width: 44px;
+            border: 1px solid black;
+        }
+    }
+}
+
+.portFolioFolder {
+    @include FolderForm();
+
+    .body {
+        gap: 50px;
+
+        .folderUnit {
+            width: 120px;
+            text-align: center;
+
+            .folder {
+                width: 120px;
+                height: 100px;
+                background: #7dcffa;
+            }
+        }
+    }
+}
+
+.aboutUsFolder {
+    @include FolderForm();
+
+    .body {
+        background: #1e1e1e;
+        box-shadow: inset 2px 0px 3px rgba(84, 84, 84, 0.25),
+            inset -2px 0px 3px rgba(84, 84, 84, 0.25);
+        border-radius: 0 0 14px 14px;
+    }
+}

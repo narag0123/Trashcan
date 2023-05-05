@@ -1,0 +1,107 @@
+.main {
+    width: 100%;
+    // height: 100vh;
+
+    .mainContainer {
+        width: 100%;
+        height: 100%;
+        // height: calc(100% - 200px);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .unit {
+            position: relative;
+            width: 305px;
+            height: 260px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 4px;
+            cursor: pointer;
+
+            img {
+                object-fit: cover;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .text_top {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+
+                .lgTitle {
+                    font-family: "Vision";
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 30px;
+                    color: #595959;
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+
+                    // p {
+                    //     // line-height: 10px;
+                    //     // width: 107px;
+                    // }
+                }
+            }
+
+            .text_bot {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    align-items: flex-start;
+
+                    // .vertical_p {
+                    //     line-height: 10px;
+                    //     // width: 107px;
+                    // }
+                }
+
+                .cornerRight {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                }
+            }
+        }
+    }
+
+    .foot {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        font-family: "Vision";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 12px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #595959;
+        padding: 15px;
+    }
+}
