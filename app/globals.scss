@@ -255,6 +255,10 @@ body {
         }
     }
 
+    .body::-webkit-scrollbar {
+        display: none;
+    }
+
     .body {
         display: flex;
         flex-direction: column;
@@ -309,4 +313,22 @@ body {
             // }
         }
     }
+}
+
+// .ck-editor__main,
+// .ck-editor__editable {
+//     height: 300px;
+// }
+
+.home {
+    overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.rdw-editor-main {
+    background: white;
+    padding: 30px;
 }

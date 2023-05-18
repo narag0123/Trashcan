@@ -1,12 +1,13 @@
 "use client";
 import { UseContext } from "@/app/store/store";
+import EditorComp from "./editor";
+
 import React, {
     useContext,
     useState,
     useRef,
     useEffect,
 } from "react";
-import { ChromePicker, BlockPicker } from "react-color";
 
 export default function ContactUs() {
     const context = useContext(UseContext);
@@ -14,10 +15,6 @@ export default function ContactUs() {
     const [toggleColor, setToggleColor] = useState(false);
     const toggleBoxRef = useRef(null); // 토글 박스 레퍼런스
     const [color, setColor] = useState("#545454");
-    const [innerHTML, setInnerHTML] = useState();
-    const [selectedText, setSelectedText] = useState();
-    const [beforeText, setBeforeText] = useState();
-    const [afterText, setAfterText] = useState();
 
     const textareaRef = useRef(null);
     const handleChange = (selectedColor) => {
@@ -35,46 +32,6 @@ export default function ContactUs() {
     };
 
     // 텍스트 선택 핸들러
-    const selectHandler = () => {
-        setInnerHTML(
-            `<span>${window
-                .getSelection()
-                .toString()}</span>`
-        );
-
-        const start = window.getSelection().anchorOffset;
-        const end = window.getSelection().focusOffset;
-
-        setSelectedText(window.getSelection().toString());
-
-        setBeforeText(
-            `<span>
-                ${window
-                    .getSelection()
-                    .anchorNode?.data?.substring(0, start)}
-            </span>`
-        );
-        setAfterText(
-            `<span>
-                ${window
-                    .getSelection()
-                    .anchorNode?.data?.substring(
-                        end,
-                        window.getSelection().anchorNode
-                            .data.length
-                    )}
-            </span>`
-        );
-
-        console.log(beforeText, selectedText, afterText);
-    };
-
-    const getSpanStyle = () => {
-        console.log(beforeText, selectedText, afterText);
-        textareaRef.current.innerHTML =
-            beforeText + innerHTML + afterText;
-    };
-
     useEffect(() => {
         document.addEventListener(
             "mousedown",
@@ -111,7 +68,7 @@ export default function ContactUs() {
                     </div>
                     <div>기타버튼</div>
                 </div>
-                <div className="head-bottom">
+                {/* <div className="head-bottom">
                     <div className="tool-font flex">
                         <select className="fontSize">
                             <option value={12}>12</option>
@@ -151,7 +108,6 @@ export default function ContactUs() {
                                 fontStyle: "normal",
                                 cursor: "pointer",
                             }}
-                            onClick={getSpanStyle}
                         >
                             B
                         </div>
@@ -178,7 +134,7 @@ export default function ContactUs() {
                             S
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="body">
                 <div className="send-info">
@@ -203,25 +159,7 @@ export default function ContactUs() {
                 <div className="send-body">
                     <hr />
                     <div className="input-body">
-                        {/* <textarea
-                            className="textarea"
-                            contenteditable="true"
-                            onSelect={selectText}
-                            ref={textareaRef}
-                        /> */}
-                        <div
-                            className="textarea"
-                            contentEditable={true}
-                            onSelect={selectHandler}
-                            ref={textareaRef}
-                        ></div>
-
-                        <div>
-                            <p>{beforeText}</p>
-                            <p>{innerHTML}</p>
-                            <p>{afterText}</p>
-                        </div>
-                        <button>turn to span</button>
+                        <EditorComp />
                     </div>
                 </div>
             </div>
